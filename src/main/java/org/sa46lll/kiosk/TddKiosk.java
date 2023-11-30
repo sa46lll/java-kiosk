@@ -7,6 +7,10 @@ public class TddKiosk implements Kiosk {
 
     private List<Product> products;
 
+    public TddKiosk() {
+        this.products = loadProducts();
+    }
+
     @Override
     public Product selectProduct(String name) {
         if (name == null) {
@@ -16,5 +20,13 @@ public class TddKiosk implements Kiosk {
                 .filter(p -> p.getName().equals(name))
                 .findFirst()
                 .orElseThrow(() -> new IllegalArgumentException("존재하지 않는 상품입니다."));
+    }
+
+    private List<Product> loadProducts() {
+        return List.of(
+                new Product("아메리카노", 4000),
+                new Product("카페라떼", 4500),
+                new Product("에스프레소", 3500)
+        );
     }
 }
