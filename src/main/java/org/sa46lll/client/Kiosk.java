@@ -6,5 +6,5 @@ public interface Kiosk {
 
     void run();
 
-    Product selectProduct(String menu);
+    Product mapToProduct(String menu);
 }
