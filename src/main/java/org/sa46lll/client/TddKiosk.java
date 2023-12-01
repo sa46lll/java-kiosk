@@ -22,7 +22,7 @@ public class TddKiosk implements Kiosk {
     }
 
     private void printStartMessage() {
-        OutputView.printWelcomeMessage(cafe.getName());
+        OutputView.printWelcomeMessage();
         OutputView.printProducts(products);
     }
 

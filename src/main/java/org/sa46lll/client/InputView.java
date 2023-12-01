@@ -8,7 +8,7 @@ public class InputView {
 
     private static final Scanner scanner = new Scanner(System.in);
 
-    public static String askOrder() {
+    static String askOrder() {
         System.out.print(ORDER_SELECTION_MESSAGE);
         return scanner.nextLine();
     }
