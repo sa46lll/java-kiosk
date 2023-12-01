@@ -1,9 +1,4 @@
-package org.sa46lll.kiosk;
-
-import static org.sa46lll.client.InputView.askOrder;
-import static org.sa46lll.client.OutputView.printProducts;
-import static org.sa46lll.client.OutputView.printSelectedInfo;
-import static org.sa46lll.client.OutputView.printWelcomeMessage;
+package org.sa46lll.client;
 
 import java.util.List;
 import org.sa46lll.cafe.Cafe;
@@ -21,11 +16,11 @@ public class TddKiosk implements Kiosk {
 
     @Override
     public void run() {
-        printWelcomeMessage(cafe.getName());
-        printProducts(products);
-        String order = askOrder();
+        OutputView.printWelcomeMessage(cafe.getName());
+        OutputView.printProducts(products);
+        String order = InputView.askOrder();
         Product product = selectProduct(order);
-        printSelectedInfo(product);
+        OutputView.printSelectedInfo(product);
     }
 
     @Override

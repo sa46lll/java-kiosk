@@ -1,4 +1,4 @@
-package org.sa46lll.kiosk;
+package org.sa46lll.client;
 
 import org.sa46lll.product.Product;
 

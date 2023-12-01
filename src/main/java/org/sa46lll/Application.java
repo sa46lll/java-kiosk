@@ -1,12 +1,9 @@
 package org.sa46lll;
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
 import org.sa46lll.cafe.Cafe;
 import org.sa46lll.cafe.TddCafe;
-import org.sa46lll.kiosk.Kiosk;
-import org.sa46lll.kiosk.TddKiosk;
+import org.sa46lll.client.Kiosk;
+import org.sa46lll.client.TddKiosk;
 
 public class Application {
 
