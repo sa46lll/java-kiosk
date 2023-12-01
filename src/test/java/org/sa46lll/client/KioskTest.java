@@ -21,7 +21,7 @@ class KioskTest {
         Kiosk kiosk = new TddKiosk(cafe);
 
         Assertions.assertThatThrownBy(
-                () -> kiosk.selectProduct(null)
+                () -> kiosk.mapToProduct(null)
         ).isInstanceOf(IllegalArgumentException.class);
     }
 
@@ -30,7 +30,7 @@ class KioskTest {
         Kiosk kiosk = new TddKiosk(cafe);
 
         Assertions.assertThatThrownBy(
-                () -> kiosk.selectProduct("없는 상품")
+                () -> kiosk.mapToProduct("없는 상품")
         ).isInstanceOf(IllegalArgumentException.class);
     }
 
@@ -38,7 +38,7 @@ class KioskTest {
     void 상품을_선택하면_상세_정보가_반환된다() {
         Kiosk kiosk = new TddKiosk(cafe);
 
-        Product product = kiosk.selectProduct("아메리카노");
+        Product product = kiosk.mapToProduct("아메리카노");
 
         Assertions.assertThat(product.getPrice()).isPositive();
     }

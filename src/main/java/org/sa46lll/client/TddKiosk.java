@@ -28,11 +28,11 @@ public class TddKiosk implements Kiosk {
 
     private Product askOrder() {
         String order = InputView.askOrder();
-        return selectProduct(order);
+        return mapToProduct(order);
     }
 
     @Override
-    public Product selectProduct(String product) {
+    public Product mapToProduct(String product) {
         validate(product);
         return this.products.stream()
                 .filter(p -> p.getName().equals(product))
