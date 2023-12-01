@@ -1,4 +1,4 @@
-package org.sa46lll.kiosk;
+package org.sa46lll.client;
 
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
