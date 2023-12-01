@@ -1,8 +1,6 @@
 package org.sa46lll.cafe;
 
-public class TddCafe extends Cafe {
+public class TddCafe implements Cafe {
 
-    public TddCafe() {
-        super("TDD Cafe");
-    }
+
 }
