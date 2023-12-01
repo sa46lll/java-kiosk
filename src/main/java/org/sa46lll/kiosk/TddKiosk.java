@@ -1,5 +1,10 @@
 package org.sa46lll.kiosk;
 
+import static org.sa46lll.client.InputView.askOrder;
+import static org.sa46lll.client.OutputView.printProducts;
+import static org.sa46lll.client.OutputView.printSelectedInfo;
+import static org.sa46lll.client.OutputView.printWelcomeMessage;
+
 import java.util.List;
 import org.sa46lll.cafe.Cafe;
 import org.sa46lll.product.Product;
@@ -16,16 +21,11 @@ public class TddKiosk implements Kiosk {
 
     @Override
     public void run() {
-        System.out.println(cafe.getName() + "에 오신 것을 환영합니다.");
-        System.out.println("상품을 선택해 주세요.");
-        showProducts();
-    }
-
-    private void showProducts() {
-        this.products.forEach(
-                product -> System.out.println("- " + product.getName())
-        );
-        System.out.print("상품을 입력해주세요: ");
+        printWelcomeMessage(cafe.getName());
+        printProducts(products);
+        String order = askOrder();
+        Product product = selectProduct(order);
+        printSelectedInfo(product);
     }
 
     @Override
