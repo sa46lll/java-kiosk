@@ -17,6 +17,7 @@ public class Order {
         this.product = product;
         this.quantity = quantity;
         this.size = size;
+        this.totalPrice = product.getPrice() * quantity;
     }
 
     public Long getOrderNumber() {
