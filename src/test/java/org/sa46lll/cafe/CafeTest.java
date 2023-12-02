@@ -41,7 +41,6 @@ class CafeTest {
         Assertions.assertThat(order.getTotalPrice()).isEqualTo(product.getPrice() * 3);
     }
 
-    @Disabled
     @Test
     void 주문_번호는_연속적으로_증가해야_한다() {
         Product product = kiosk.mapToProduct("아메리카노");
@@ -49,7 +48,7 @@ class CafeTest {
         Order order1 = cafe.order(product, 1, CoffeeSize.TALL);
         Order order2 = cafe.order(product, 2, CoffeeSize.GRANDE);
 
-        Assertions.assertThat(order1.getOrderNumber() - order2.getOrderNumber()).isEqualTo(1);
+        Assertions.assertThat(order2.getOrderNumber() - order1.getOrderNumber()).isEqualTo(1);
     }
 
     @Disabled
