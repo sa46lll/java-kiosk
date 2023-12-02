@@ -53,8 +53,9 @@ public class TddKiosk implements Kiosk {
     }
 
     private void order(Product product, int quantity, CoffeeSize size) {
-        cafe.order(product, quantity, size);
-        OutputView.printOrderCompleted();
+        Order order = cafe.order(product, quantity, size)
+                .orElseThrow(() -> new IllegalArgumentException("카페 내부 사정으로 주문이 불가합니다. 죄송합니다."));
+        OutputView.printOrderCompleted(order.getOrderNumber());
     }
 
     private List<Product> loadProducts() {
