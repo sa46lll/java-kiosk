@@ -2,6 +2,7 @@ package org.sa46lll.client;
 
 import java.util.List;
 import org.sa46lll.cafe.Cafe;
+import org.sa46lll.product.CoffeeSize;
 import org.sa46lll.product.Product;
 
 public class TddKiosk implements Kiosk {
@@ -19,6 +20,7 @@ public class TddKiosk implements Kiosk {
         printStartMessage();
         Product product = askOrder();
         OutputView.printSelectedInfo(product);
+        order(product, 4, CoffeeSize.TALL);
     }
 
     private void printStartMessage() {
@@ -44,6 +46,11 @@ public class TddKiosk implements Kiosk {
         if (name == null) {
             throw new IllegalArgumentException("메뉴를 입력해 주세요.");
         }
+    }
+
+    private void order(Product product, int quantity, CoffeeSize size) {
+        cafe.order(product, quantity, size);
+        OutputView.printOrderCompleted();
     }
 
     private List<Product> loadProducts() {
