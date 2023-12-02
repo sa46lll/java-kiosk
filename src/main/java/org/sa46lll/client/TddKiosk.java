@@ -2,6 +2,7 @@ package org.sa46lll.client;
 
 import java.util.List;
 import org.sa46lll.cafe.Cafe;
+import org.sa46lll.order.Order;
 import org.sa46lll.product.CoffeeSize;
 import org.sa46lll.product.Product;
 
@@ -19,7 +20,6 @@ public class TddKiosk implements Kiosk {
     public void run() {
         printStartMessage();
         Product product = askOrder();
-        OutputView.printSelectedInfo(product);
         order(product, 4, CoffeeSize.TALL);
     }
 
@@ -30,6 +30,10 @@ public class TddKiosk implements Kiosk {
 
     private Product askOrder() {
         String order = InputView.askOrder();
+        boolean isOrderConfirmed = InputView.askOrderConfirmation(mapToProduct(order));
+        if (!isOrderConfirmed) {
+            return askOrder();
+        }
         return mapToProduct(order);
     }
 
