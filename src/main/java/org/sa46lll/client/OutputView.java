@@ -10,6 +10,7 @@ public class OutputView {
 
 
     static void printWelcomeMessage() {
+        System.out.println();
         System.out.println(WELCOME_MESSAGE);
     }
 

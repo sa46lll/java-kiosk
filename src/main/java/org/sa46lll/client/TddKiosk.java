@@ -18,9 +18,12 @@ public class TddKiosk implements Kiosk {
 
     @Override
     public void run() {
-        printStartMessage();
-        Product product = askOrder();
-        order(product, 4, CoffeeSize.TALL);
+        do {
+            printStartMessage();
+            Product product = askOrder();
+            order(product, 4, CoffeeSize.TALL);
+
+        } while (InputView.askContinue());
     }
 
     private void printStartMessage() {
@@ -39,17 +42,10 @@ public class TddKiosk implements Kiosk {
 
     @Override
     public Product mapToProduct(String product) {
-        validate(product);
         return this.products.stream()
                 .filter(p -> p.getName().equals(product))
                 .findFirst()
                 .orElseThrow(() -> new IllegalArgumentException("존재하지 않는 상품입니다."));
-    }
-
-    private static void validate(String name) {
-        if (name == null) {
-            throw new IllegalArgumentException("메뉴를 입력해 주세요.");
-        }
     }
 
     private void order(Product product, int quantity, CoffeeSize size) {
