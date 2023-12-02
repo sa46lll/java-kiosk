@@ -32,7 +32,6 @@ class CafeTest {
         Assertions.assertThat(order.getSize()).isEqualTo(CoffeeSize.TALL);
     }
 
-    @Disabled
     @Test
     void 주문한_상품의_가격을_알_수_있다() {
         Product product = kiosk.mapToProduct("아메리카노");
