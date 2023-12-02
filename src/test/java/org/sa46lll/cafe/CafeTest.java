@@ -51,7 +51,6 @@ class CafeTest {
         Assertions.assertThat(order2.getOrderNumber() - order1.getOrderNumber()).isEqualTo(1);
     }
 
-    @Disabled
     @Test
     void 주문_생성_시간을_알_수_있다() {
         Product product = kiosk.mapToProduct("아메리카노");
