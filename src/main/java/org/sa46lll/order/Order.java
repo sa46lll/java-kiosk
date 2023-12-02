@@ -1,0 +1,45 @@
+package org.sa46lll.order;
+
+import java.time.LocalDateTime;
+import org.sa46lll.product.CoffeeSize;
+import org.sa46lll.product.Product;
+
+public class Order {
+
+    private Long orderNumber;
+    private Product product;
+    private int quantity;
+    private CoffeeSize size;
+    private int totalPrice;
+    private LocalDateTime createdAt;
+
+    public Order(Product product, int quantity, CoffeeSize size) {
+        this.product = product;
+        this.quantity = quantity;
+        this.size = size;
+    }
+
+    public Long getOrderNumber() {
+        return orderNumber;
+    }
+
+    public Product getProduct() {
+        return product;
+    }
+
+    public int getQuantity() {
+        return quantity;
+    }
+
+    public CoffeeSize getSize() {
+        return size;
+    }
+
+    public int getTotalPrice() {
+        return totalPrice;
+    }
+
+    public LocalDateTime getCreatedAt() {
+        return createdAt;
+    }
+}
