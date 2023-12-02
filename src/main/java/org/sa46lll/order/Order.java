@@ -22,6 +22,7 @@ public class Order {
         this.quantity = quantity;
         this.size = size;
         this.totalPrice = product.getPrice() * quantity;
+        this.createdAt = LocalDateTime.now();
     }
 
     public Long getOrderNumber() {
