@@ -42,4 +42,15 @@ class KioskTest {
 
         Assertions.assertThat(product.getPrice()).isPositive();
     }
+
+    @Test
+    void 커피와_빵이_포함된_메뉴를_확인한다() {
+        Kiosk kiosk = new TddKiosk(cafe);
+
+        Product product1 = kiosk.mapToProduct("아메리카노");
+        Product product2 = kiosk.mapToProduct("소금빵");
+
+        Assertions.assertThat(product1).isNotNull();
+        Assertions.assertThat(product2).isNotNull();
+    }
 }
