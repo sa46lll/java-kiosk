@@ -1,6 +1,6 @@
 package org.sa46lll.product;
 
-public class Product {
+public abstract class Product {
 
     private String name;
     private int price;
