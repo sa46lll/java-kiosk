@@ -12,6 +12,9 @@ public class InputView {
 
     private static final Scanner scanner = new Scanner(System.in);
 
+    private InputView() {
+    }
+
     static String askOrder() {
         System.out.print(ORDER_SELECTION_MESSAGE);
         return scanner.nextLine();

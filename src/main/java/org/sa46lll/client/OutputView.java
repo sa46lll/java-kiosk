@@ -8,6 +8,8 @@ public class OutputView {
     private static final String WELCOME_MESSAGE = "환영합니다! 주문을 시작해볼까요?";
     private static final String ORDER_COMPLETED_MESSAGE = "주문이 성공적으로 완료되었습니다, 주문 번호는 %d입니다. 감사합니다!\n";
 
+    private OutputView() {
+    }
 
     static void printWelcomeMessage() {
         System.out.println();
