@@ -3,6 +3,9 @@ package org.sa46lll.client;
 import java.util.List;
 import org.sa46lll.cafe.Cafe;
 import org.sa46lll.order.Order;
+import org.sa46lll.product.Beverage;
+import org.sa46lll.product.BeverageSize;
+import org.sa46lll.product.Coffee;
 import org.sa46lll.product.CoffeeSize;
 import org.sa46lll.product.Product;
 
@@ -21,7 +24,7 @@ public class TddKiosk implements Kiosk {
         do {
             printStartMessage();
             Product product = askOrder();
-            order(product, 4, CoffeeSize.TALL);
+            order(product, 4, product.getSize());
 
         } while (InputView.askContinue());
     }
@@ -48,7 +51,7 @@ public class TddKiosk implements Kiosk {
                 .orElseThrow(() -> new IllegalArgumentException("존재하지 않는 상품입니다."));
     }
 
-    private void order(Product product, int quantity, CoffeeSize size) {
+    private void order(Product product, int quantity, Enum<?> size) {
         Order order = cafe.order(product, quantity, size)
                 .orElseThrow(() -> new IllegalArgumentException("카페 내부 사정으로 주문이 불가합니다. 죄송합니다."));
         OutputView.printOrderCompleted(order.getOrderNumber());
@@ -56,9 +59,10 @@ public class TddKiosk implements Kiosk {
 
     private List<Product> loadProducts() {
         return List.of(
-                new Product("아메리카노", 4000),
-                new Product("카페라떼", 4500),
-                new Product("에스프레소", 3500)
+                new Coffee("아메리카노", 4000, CoffeeSize.TALL),
+                new Coffee("카페라떼", 4500, CoffeeSize.TALL),
+                new Coffee("에스프레소", 3500, CoffeeSize.TALL),
+                new Beverage("소금빵", 2000, BeverageSize.MEDIUM)
         );
     }
 }

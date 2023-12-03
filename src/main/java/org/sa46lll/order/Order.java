@@ -2,7 +2,6 @@ package org.sa46lll.order;
 
 import java.time.LocalDateTime;
 import java.util.concurrent.atomic.AtomicLong;
-import org.sa46lll.product.CoffeeSize;
 import org.sa46lll.product.Product;
 
 public class Order {
@@ -12,11 +11,11 @@ public class Order {
     private Long orderNumber;
     private Product product;
     private int quantity;
-    private CoffeeSize size;
+    private Enum<?> size;
     private int totalPrice;
     private LocalDateTime createdAt;
 
-    public Order(Product product, int quantity, CoffeeSize size) {
+    public Order(Product product, int quantity, Enum<?> size) {
         this.orderNumber = index.getAndIncrement();
         this.product = product;
         this.quantity = quantity;
@@ -37,7 +36,7 @@ public class Order {
         return quantity;
     }
 
-    public CoffeeSize getSize() {
+    public Enum<?> getSize() {
         return size;
     }
 

@@ -4,10 +4,12 @@ public class Product {
 
     private String name;
     private int price;
+    private Enum<?> size;
 
-    public Product(String name, int price) {
+    public Product(String name, int price, Enum<?> size) {
         this.name = name;
         this.price = price;
+        this.size = size;
     }
 
     public String getName() {
@@ -16,5 +18,9 @@ public class Product {
 
     public int getPrice() {
         return this.price;
+    }
+
+    public Enum<?> getSize() {
+        return this.size;
     }
 }
